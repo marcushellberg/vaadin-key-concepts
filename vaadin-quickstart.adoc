@@ -46,10 +46,10 @@ Vaadin has a component-based programming model. It comes with a link:/components
 
 You can find link:/components[a list of all the components here]. 
 
-NOTE: If you are using one of the starters, you have access to all the components without any additional installation steps. The installation instructions on the component pages are for those who are setting up a custom project setup from scratch. 
+NOTE: *If you are using one of the starters, you have access to all the components without any additional installation steps*. The installation instructions on the component pages are for those who are setting up a custom project setup from scratch. 
 
 === Using components
-Let's begin by instantiating a new component:
+Let's look at instantiating a new component:
 
 [source,java]
 ----
@@ -58,6 +58,9 @@ button.setIcon(VaadinIcon.VAADIN_V.create());
 ----
 
 In Vaadin, each component is represented by a Java object. To use a component, create a new instance and configure it. The easiest way to explore the functionality of components is through the autocomplete menu in your IDE.
+
+.The easiest way of exploring component APIs is through the IDE autocomplete menu
+image::exploring-api.png[The easiest way of exploring component APIs is through the IDE autocomplete menu.]
 
 Having a component all by itself is not that useful. To build something more meaningful, we'll want to create composites of several components that interact with each other. To do that, we need layouts.
 
@@ -342,7 +345,7 @@ In this second version, we are hiding the fact that we are internally using `Ver
 == Creating components with Vaadin Designer
 The link:/designer[Vaadin Designer visual builder] is a tool that allows you to build components and views with a drag-and-drop interface instead of code. It can be a powerful tool when you need to create many views or big forms. 
 
-video:drag-and-drop.mp4[]
+video::drag-and-drop.mp4[]
 
 You can use components created by Designer in your code like any other component. You can also use the components you have hand-coded in Designer. 
 
