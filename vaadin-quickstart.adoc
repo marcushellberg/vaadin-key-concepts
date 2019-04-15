@@ -11,7 +11,7 @@ TIP: Writing Vaadin apps is more fun and productive when you have your developme
 
 == Core concepts
 
-=== 1. (Almost) Everything is a component
+=== 1. Everything is a component
 Need a button? Write `new Button()`. Need a text field? Write `new TextField()`.
 
 Build own components and views by composing existing components with layouts. 
@@ -19,7 +19,7 @@ Build own components and views by composing existing components with layouts.
 Navigate to components by marking them with a `@Route("path")` annotation. 
 
 === 2. Listen to events to make your app interactive
-Add a listerner to a button with `addClickListener()` or get notified of changed selection in a select with `addValueChangeListener()`. 
+Add a listener to a button with `addClickListener()` or get notified of changed selection in a select with `addValueChangeListener()`. 
 
 Any component that a user can interact with will dispatch events that you can listen to.
 
