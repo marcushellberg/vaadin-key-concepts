@@ -375,7 +375,7 @@ Binding data from data objects to inputs is one of the most central functions of
 
 The Vaadin `Binder` API supports validating both individual fields and cross-field validation of the entire form. You can also define conversions between the value you show to the user and the value you save to the object. 
 
-== Data binding and forms
+=== Setting up data binding
 `Binder` works with standard Java objects as the data model. It allows you to bind any property (getter/setter) to a UI field. 
 
 `Binder` supports both one-way data binding (`readBean(model)`) or two-way data binding (`setBean(model)`). Read the section on saving to learn how to get the value out of `Binder` if you are using one-way data binding.
@@ -688,6 +688,7 @@ Vaadin has an official browser testing tool called link:/testbench[TestBench]. I
 To test the component in its real environment through a browser, we could write the following TestBench test case. 
 
 .`*ExampleComponentIT.java*`
+[source,java]
 ----
 public class ExampleComponentIT extends TestBenchTestCase {
 
