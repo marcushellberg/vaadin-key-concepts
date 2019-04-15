@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header,
+.footer {
+  background: #33383a;
+  color: #fff;
+}
+
+.navbar {
+  background: #00b4f0;
+  color: #fff;
+}
