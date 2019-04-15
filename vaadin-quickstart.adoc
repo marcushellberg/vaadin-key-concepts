@@ -62,6 +62,7 @@ In Vaadin, each component is represented by a Java object. To use a component, c
 .The easiest way of exploring component APIs is through the IDE autocomplete menu
 image::exploring-api.png[The easiest way of exploring component APIs is through the IDE autocomplete menu.]
 
+
 Having a component all by itself is not that useful. To build something more meaningful, we'll want to create composites of several components that interact with each other. To do that, we need layouts.
 
 == Layouts
