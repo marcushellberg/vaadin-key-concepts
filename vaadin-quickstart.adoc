@@ -299,7 +299,7 @@ public class BusinessCard extends VerticalLayout {
 Once we have created this component, we can now import it and use it in our application:
 
 .`*ComponentView.java*`
-[source.java]
+[source,java]
 ----
 @Route("component")
 public class ComponentView extends VerticalLayout {
