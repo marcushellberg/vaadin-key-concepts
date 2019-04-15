@@ -270,7 +270,7 @@ So far, we have only looked at using existing components.
 
 When you are developing your own Vaadin applications, you will often create your own components to encapsulate complex parts of the system into reusable components. This forms the base of the component-based programming model that Vaadin and most other modern UI frameworks use. 
 
-== Creating new components through composition
+== Creating components through composition
 The most commonly used way of creating a new component is to create a composition of existing components with an appropriate API for what you are building. 
 
 Let's look at a simple example of a component that displays a business card.
