@@ -3,7 +3,7 @@
 :imgdir: images
 :toc:
 
-Now that you have a Vaadin starter up and running let's take a look at some of the key concepts of Vaadin development to get you off to a quick start. 
+Now that you have a Vaadin starter up and running, let's take a look at some of the key concepts of Vaadin development to get you off to a quick start. 
 
 If you don't have an app running, you can find them on the link:/star[starter page]. 
 
@@ -41,14 +41,14 @@ Vaadin uses a component-based programming model. In this example, our applicatio
 
 Finally, we map the application to the context root with the `@Route("")` annotation. The empty string here means that it should match the empty route. 
 
-== Components and layouts
+== Components
 Vaadin has a component-based programming model. It comes with a link:/components[large library of UI components] and layouts that you can extend with your own components to build applications. 
 
 You can find link:/components[a list of all the components here]. 
 
 NOTE: If you are using one of the starters, you have access to all the components without any additional installation steps. The installation instructions on the component pages are for those who are setting up a custom project setup from scratch. 
 
-== Using components
+=== Using components
 Let's begin by instantiating a new component:
 
 [source,java]
@@ -754,3 +754,5 @@ If you prefer watching videos, we have a link:/training/courses[free online vide
 If you want to browse all tutorials and the learning material, head over to the link:/tutorials[Vaadin Learning Center].
 
 If you just want to tinker around, check out link:/components[the code snippets for components] or head over to the link:/docs[full documentation] for a more in-depth explanation of how Vaadin works. 
+
+
