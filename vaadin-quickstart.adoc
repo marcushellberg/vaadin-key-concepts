@@ -1,6 +1,7 @@
 = Vaadin key concepts and quickstart
 :author: Marcus Hellberg
 :imgdir: images
+:toc:
 
 Now that you have a Vaadin starter up and running let's take a look at some of the key concepts of Vaadin development to get you off to a quick start. 
 
