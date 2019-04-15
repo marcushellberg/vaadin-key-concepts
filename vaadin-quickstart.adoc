@@ -339,14 +339,14 @@ public class BusinessCard extends Composite<VerticalLayout> {
 
 In this second version, we are hiding the fact that we are internally using `VerticalLayout`, only exposing the `setName` and `setTitle` methods as public API. 
 
-== Designer
+== Creating components with Vaadin Designer
 The link:/designer[Vaadin Designer visual builder] is a tool that allows you to build components and views with a drag-and-drop interface instead of code. It can be a powerful tool when you need to create many views or big forms. 
 
 video:drag-and-drop.mp4[]
 
 You can use components created by Designer in your code like any other component. You can also use the components you have hand-coded in Designer. 
 
-=== Extension
+== Interacting with JavaScript events and DOM nodes
 In some cases, you need to build a component that cannot be built by just composing existing components. 
 
 Vaadin is built to be easily extendable to help in situations like this. By using the Element API, you can get access to DOM-level events and attributes/properties. 
@@ -363,7 +363,7 @@ You can read more about link:/docs/flow/creating-components/tutorial-component-e
 ----
 
 
-== Extending the framework with custom JavaScript components
+== Creating custom JavaScript components
 You can also write or integrate completely custom UI components in Vaadin. These are more advanced topics, and are covered in more detail in the documentation:
 
 Read more about link:/docs/flow/web-components/integrating-a-web-component.html[integrating Web Components into Vaadin].
