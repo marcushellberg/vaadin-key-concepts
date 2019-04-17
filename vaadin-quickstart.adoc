@@ -648,7 +648,7 @@ To write a unit test for the component above, we need a testing library to run t
 
 In this example, we are using https://junit.org/junit5/[jUnit 5] and https://site.mockito.org/[Mockito]. 
 
-.`*ExampleComponentTest.java`
+.`*ExampleComponentTest.java*`
 [source,java]
 ----
 class ExampleComponentTest {
