@@ -406,7 +406,7 @@ If you used two-way data binding (`setBean()`, see "Binding an input to an objec
 
 *One-way data binding*
 
-If you used onetwo-way data binding (`readBean()`, see "Binding an input to an object"), you need to read the form manually. 
+If you used one-way data binding (`readBean()`, see "Binding an input to an object"), you need to read the form manually. 
 
 [source,java]
 ----
