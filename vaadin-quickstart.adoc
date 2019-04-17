@@ -46,10 +46,10 @@ Vaadin has a component-based programming model. It comes with a link:/components
 
 You can find link:/components[a list of all the components here]. 
 
-NOTE: *If you are using one of the starters, you have access to all the components without any additional installation steps*. The installation instructions on the component pages are for those who are setting up a custom project setup from scratch. 
+NOTE: If you are using one of the starters, you have access to all the components without any additional installation steps. The installation instructions on the component pages are for those who are setting up a custom project setup from scratch. 
 
 === Using components
-Let's look at instantiating a new component:
+Let's begin by instantiating a new component:
 
 [source,java]
 ----
@@ -59,10 +59,6 @@ button.setIcon(VaadinIcon.VAADIN_V.create());
 
 In Vaadin, each component is represented by a Java object. To use a component, create a new instance and configure it. The easiest way to explore the functionality of components is through the autocomplete menu in your IDE.
 
-.The easiest way of exploring component APIs is through the IDE autocomplete menu
-image::exploring-api.png[The easiest way of exploring component APIs is through the IDE autocomplete menu.]
-
-
 Having a component all by itself is not that useful. To build something more meaningful, we'll want to create composites of several components that interact with each other. To do that, we need layouts.
 
 == Layouts
@@ -71,7 +67,6 @@ Layouts are special components that hold other components and determine how the 
 The most common layouts you will encounter in Vaadin applications are:
 
 * link:/components/vaadin-ordered-layout/java-examples[HorizontalLayout & VerticalLayout]
-* FlexLayout DOES NOT HAVE ANY DOCUMENTATION?
 * Div
 * link:/components/vaadin-split-layout/java-examples[SplitLayout]
 * link:/components/vaadin-app-layout/java-examples[AppLayout]
@@ -126,63 +121,12 @@ public class BasicLayoutView extends VerticalLayout {
 
 image:vaadin-quickstart-basic-layouts.png[Basic header, navbar, and footer layout using Vaadin HorizontalLayout and VerticalLayout]
 
-NOTE: HorizontalLayout and VerticalLayout are not well suited for responsive layouts. They will not wrap their content if the viewport gets too narrow. The following two layouts are better suited for responsive layouts.
-
-=== FlexLayout
-`FlexLayout` is a Java convenience API for the CSS flexbox. It can be used for both horizontal and vertical layouts, and it supports wrapping content to accommodate different screen sizes with the `setWrapMode( better)` method.
-
-Because `FlexLayout` is more powerful than `HorizontalLayout` and `VerticalLayout`, it comes with a few tradeoffs. First, it doesn't automatically add space around components, and second, it requires familiarity with the CSS flexbox layout. 
-
-With `FlexLayout`, we can now have the navigation bar and content area in our previous example get wrapped and displayed on top of each other if we run out of vertical space to display the content correctly.
-
-.`*FlexLayoutView.java*`
-[source,java]
-----
-@Route("flex")
-public class FlexLayoutView extends VerticalLayout {
-
-  public FlexLayoutView() {
-    // Instantiate layouts
-    HorizontalLayout header = new HorizontalLayout();
-    VerticalLayout navBar = new VerticalLayout();
-    VerticalLayout content = new VerticalLayout();
-    FlexLayout center = new FlexLayout();
-    HorizontalLayout footer = new HorizontalLayout();
-
-    // Configure layouts
-    setSizeFull();
-    setPadding(false);
-    setSpacing(false);
-    header.setWidth("100%");
-    header.setPadding(true);
-    center.setWidth("100%");
-    center.setWrapMode(WrapMode.WRAP);
-    navBar.setMinWidth("200px");
-    navBar.getElement().getStyle().set("flex", "1");
-    content.setMinWidth("600px");
-    content.getElement().getStyle().set("flex", "4");
-    footer.setWidth("100%");
-    footer.setPadding(true);
-
-    // Compose layout
-    center.add(navBar, content);
-    center.setFlexGrow(1, navBar);
-    add(header, center, footer);
-    expand(center);
-  }
-}
-----
-
-!image:vaadin-quickstart-flex-layout.png[With FlexLayout, you can stack the navigation and content layouts on top of each other when the screen gets narrow.]
-
-TIP: There is a ready-made responsive link:/components/vaadin-app-layout[App Layout].
-
-Many people prefer to create their responsive layouts using CSS instead of the programmatic API. This allows the creation of media queries for more fine-grained control of the layout. The humble `<div>` is the best tool for the job.
+NOTE: HorizontalLayout and VerticalLayout are not well suited for responsive layouts. They will not wrap their content if the viewport gets too narrow. For that, we'll need to use some CSS. 
 
 === Div
-The `Div` is the most flexible of all the layouts, but it also requires you to handle all positioning yourself through CSS.
+The `Div` is the most flexible of all the layouts, but it also requires you to handle all positioning yourself through CSS. We can use the https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox[CSS flexbox] layout to achieve a smooth responsive layout that adapts to different viewport sizes.
 
-Continuing on our example from the previous two examples, let's look at how the code changes when using `Div` layouts.
+When we are using CSS to layout components, we need to define CSS classnames for all the components. We also need to add a `@StyleSheet` annotation to load a CSS file. 
 
 .`*DivLayoutView.java*`
 [source, java]
@@ -217,11 +161,9 @@ public class DivLayoutView extends Div {
 }
 ----
 
-In this example, we need to declare CSS class names for the layouts to be able to configure them using CSS. We also add a `@StyleSheet` annotation to load a CSS file containing the CSS. 
+Create the CSS file in the `frontend/src/styles` directory. This may either be `webapp/frontend/src/styles/` or `META_INF/resources/frontend/src/styles/` depending on the starter you are using.
 
-Finally, we create the CSS file:
-
-.`*webapp/frontend/src/styles/div-layout-styles.css*`
+.`*div-layout-styles.css*`
 [source,css]
 ----
 .main-view {
@@ -247,6 +189,8 @@ Finally, we create the CSS file:
 ----
 
 Depending on your previous development background, you may find this approach cleaner than the earlier programmatic way. If you are working with designers as a part of your team, the CSS based view is going to be easier for them to configure without having to touch Java code. 
+
+TIP: Vaadin has a Java wrapper for the CSS flexbox layout, `FlexLayout`. It allows you to set the same flex attributes from Java instead of having a separate CSS file. 
 
 === Declarative layouts
 In some specific situations, you may find it more convenient to define a layout declaratively in HTML. Vaadin supports this through the Template API. 
@@ -346,7 +290,7 @@ In this second version, we are hiding the fact that we are internally using `Ver
 == Creating components with Vaadin Designer
 The link:/designer[Vaadin Designer visual builder] is a tool that allows you to build components and views with a drag-and-drop interface instead of code. It can be a powerful tool when you need to create many views or big forms. 
 
-video::drag-and-drop.mp4[]
+video:drag-and-drop.mp4[]
 
 You can use components created by Designer in your code like any other component. You can also use the components you have hand-coded in Designer. 
 
@@ -399,7 +343,7 @@ public class FormView extends FormLayout {
     binder.forField(firstNameField).bind(Person::getFirstName, Person::setFirstName);
 
     // One-way data binding
-    binder.readBean(model);
+    // binder.readBean(model);
 
     // Two-way data binding
     binder.setBean(model);
@@ -462,7 +406,7 @@ If you used two-way data binding (`setBean()`, see "Binding an input to an objec
 
 *One-way data binding*
 
-If you used two-way data binding (`readBean()`, see "Binding an input to an object"), you need to read the form manually. 
+If you used onetwo-way data binding (`readBean()`, see "Binding an input to an object"), you need to read the form manually. 
 
 [source,java]
 ----
@@ -648,7 +592,7 @@ To write a unit test for the component above, we need a testing library to run t
 
 In this example, we are using https://junit.org/junit5/[jUnit 5] and https://site.mockito.org/[Mockito]. 
 
-.`*ExampleComponentTest.java*`
+.`*ExampleComponentTest.java`
 [source,java]
 ----
 class ExampleComponentTest {
