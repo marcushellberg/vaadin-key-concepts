@@ -285,7 +285,7 @@ public class BusinessCard extends Composite<VerticalLayout> {
 }
 ----
 
-In this second version, we are hiding the fact that we are internally using `VerticalLayout`, only exposing the `setName` and `setTitle` methods as public API. 
+In this second version, we are hiding the fact that we are internally using `VerticalLayout`, only exposing the `setName` and `setTitle` methods as public API. Vaadin will internally create the `VerticalLayout`, that we can get using `getContent()`. Components used as composites need to have a no-arg constructor so Vaadin can instantiate them.
 
 == Creating components with Vaadin Designer
 The link:/designer[Vaadin Designer visual builder] is a tool that allows you to build components and views with a drag-and-drop interface instead of code. It can be a powerful tool when you need to create many views or big forms. 
